@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class ResearchController {
     private final ResearchService researchService;
+    @GetMapping("/")
+    public String home() {
+        return "Research Assistant Backend is running 🚀";
+    }
     @PostMapping("/process")
     public ResponseEntity<String> processContent(@RequestBody ResearchRequest request){
         String result = researchService.processContent(request);
